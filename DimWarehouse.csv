@@ -1,0 +1,9 @@
+WarehouseID,WarehouseName,City,State,Region,Capacity
+WH001,Mumbai Central,Mumbai,Maharashtra,West,1800
+WH002,Delhi Hub,Delhi,Delhi,North,1600
+WH003,Bengaluru South,Bengaluru,Karnataka,South,1400
+WH004,Chennai Port,Chennai,Tamil Nadu,South,1200
+WH005,Hyderabad Tech Park,Hyderabad,Telangana,South,1300
+WH006,Pune Distribution,Pune,Maharashtra,West,1000
+WH007,Ahmedabad West,Ahmedabad,Gujarat,West,950
+WH008,Kolkata East,Kolkata,West Bengal,East,900

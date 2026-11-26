@@ -1,0 +1,7 @@
+File,Rows,Purpose
+FactOrders.csv,5000,One row per order
+DimCustomer.csv,1200,Customer dimension
+DimWarehouse.csv,8,Warehouse dimension
+DimCarrier.csv,5,Carrier dimension
+DimProduct.csv,15,Product dimension
+DimDate.csv,730,Calendar dimension

@@ -1,0 +1,16 @@
+ProductID,ProductCategory,ProductName,UnitPrice
+P001,Electronics,Wireless Earbuds,2499
+P002,Electronics,Smart Watch,4999
+P003,Home & Kitchen,Mixer Grinder,3299
+P004,Home & Kitchen,Storage Containers,799
+P005,Apparel,Casual Shirt,1199
+P006,Apparel,Running Shoes,2899
+P007,Beauty & Personal Care,Skin Care Set,1499
+P008,Books & Stationery,Notebook Bundle,499
+P009,Sports,Yoga Mat,999
+P010,Toys,Building Blocks,1299
+P011,Grocery,Pantry Essentials,899
+P012,Electronics,Bluetooth Speaker,1799
+P013,Home & Kitchen,Air Fryer,6999
+P014,Apparel,Winter Jacket,3599
+P015,Sports,Fitness Bands,699

@@ -1,0 +1,61 @@
+SWIFTCART LOGISTICS OPERATIONS INTELLIGENCE — POWER BI PRACTICE PROJECT
+This is a fictional, synthetic dataset for learning; it is not real company data.
+All currency values are Indian Rupees (INR).
+
+FILES
+FactOrders.csv: 5,000 unique orders.
+DimCustomer.csv: 1,200 customers.
+DimWarehouse.csv: 8 warehouses.
+DimCarrier.csv: 5 carriers and shipping methods.
+DimProduct.csv: 15 products.
+DimDate.csv: calendar from 2025-01-01 through 2026-12-31.
+
+RELATIONSHIPS (1-to-many, single direction from dimension to fact)
+DimCustomer[CustomerID] -> FactOrders[CustomerID]
+DimWarehouse[WarehouseID] -> FactOrders[WarehouseID]
+DimCarrier[CarrierID] -> FactOrders[CarrierID]
+DimProduct[ProductID] -> FactOrders[ProductID]
+DimDate[Date] -> FactOrders[OrderDate] (active)
+
+Set all date fields to Date type in Power Query. Set DiscountPct to Percentage.
+One row in FactOrders represents one order. On-time = ActualDeliveryDate <=
+PromisedDate for delivered orders. Delayed orders are delivered orders where
+ActualDeliveryDate > PromisedDate. ReturnFlag is TRUE only for delivered orders.
+Non-delivered orders have blank ActualDeliveryDate and CustomerRating.
+
+CLIENT REQUIREMENTS — SIX PAGES
+1. Executive Overview: Total Orders, On-time %, Delayed Orders, Return Rate,
+   Shipping Cost; monthly trend; status split; orders by region; top delayed cities.
+2. Delivery & SLA: on-time by city; average delivery days by carrier; delay
+   reasons; shipping methods; regional map; promised vs actual delivery.
+3. Warehouse Performance: orders per warehouse; pending orders; processing/
+   delivery time; rankings; category analysis; comparison matrix.
+4. Shipping Cost & Finance: total shipping cost; cost per order; carrier/method/
+   region cost; monthly trend; cost vs on-time scatter plot.
+5. Returns & Customer Experience: return rate/reasons; returns by category/city;
+   ratings; delivery delay vs rating.
+6. Order Explorer: order-level searchable table, dates, carrier, status, delay,
+   shipping cost, returns and rating.
+
+INTERACTIVE PRACTICE
+Vertical page navigator; Home/Back/Reset/Help buttons; searchable slicers;
+collapsible filter panel with bookmarks; chart/table toggle; synced date and
+region slicers; drill-through; report-page tooltips; conditional formatting;
+dynamic titles; Top N filters; optional field parameters.
+
+STARTER MEASURES (rename columns if needed)
+Total Orders = DISTINCTCOUNT(FactOrders[OrderID])
+Delivered Orders = CALCULATE([Total Orders], FactOrders[OrderStatus] = "Delivered")
+Delayed Orders =
+CALCULATE([Total Orders], FILTER(FactOrders,
+FactOrders[OrderStatus] = "Delivered" &&
+FactOrders[ActualDeliveryDate] > FactOrders[PromisedDate]))
+On-Time Delivery % = DIVIDE([Delivered Orders]-[Delayed Orders],[Delivered Orders],0)
+Total Shipping Cost = SUM(FactOrders[ShippingCost])
+Shipping Cost per Order = DIVIDE([Total Shipping Cost],[Total Orders],0)
+Returned Orders = CALCULATE([Total Orders], FactOrders[ReturnFlag] = TRUE())
+Return Rate % = DIVIDE([Returned Orders],[Total Orders],0)
+
+For analysis by promised or actual delivery date, add inactive date relationships
+and use USERELATIONSHIP, or create role-playing date tables. Validate the model
+and all metrics before presenting. Clearly disclose that the data is simulated.

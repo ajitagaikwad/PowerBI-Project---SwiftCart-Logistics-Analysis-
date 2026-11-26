@@ -1,0 +1,6 @@
+CarrierID,CarrierName,ShippingMethod
+CAR01,SwiftShip,Express
+CAR02,BlueDart,Express
+CAR03,NationalPost,Standard
+CAR04,QuickMove,Same Day
+CAR05,EcoParcel,Economy
